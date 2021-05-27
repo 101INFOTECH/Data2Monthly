@@ -6,5 +6,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('monthly',function(){
    $data =  User::all();
-   dd(Monthly::expenseMonthly($data,'created_at','price'));
+   dd(Monthly::current($data,'created_at','price'));
 });
