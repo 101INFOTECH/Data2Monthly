@@ -8,17 +8,17 @@ composer require 101infotech/data2monthly
 ```
 
 ### Code Examples
-`
+```
 use Infotech\Data2Monthly\Monthly;
-`
+```
 To get a ordered monthly data upto current month.
-`
+```
 Monthly::current(Collection $data,'created_at'));
 //$data must be a collection
 //'created_at' must be a timestamp or date
-`
+```
 Result 
-`
+```
 array:5 [▼
   0 => 0
   1 => 0
@@ -26,4 +26,4 @@ array:5 [▼
   3 => 0
   4 => 1
 ]
-`
+```
