@@ -29,7 +29,7 @@ array:5 [▼
   3 => 0
   4 => 1
 ]
-
+```
 To get a sum of a field grouped monthly.
 ```
 Monthly::expenseMonthly($data,'created_at','price');
