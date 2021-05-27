@@ -53,7 +53,6 @@ array:12 [▼
 ]
 ```
 
-```
 Some List of Available Codes
 ```
 Monthly::current($data,'created_at'));
