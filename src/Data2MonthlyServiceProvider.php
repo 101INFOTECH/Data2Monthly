@@ -17,6 +17,5 @@ class Data2MonthlyServiceProvider extends ServiceProvider
         $this->app->singleton('Monthly', function ($app) {
             return new Data2Monthly;
         });
-        $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
     }
 }
