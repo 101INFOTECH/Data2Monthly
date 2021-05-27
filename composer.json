@@ -1,0 +1,26 @@
+{
+    "name": "101infotech/data2monthly",
+    "description": "This package converts your data using a timestamp field to ordered data monthly or yearly.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sagar Chhetri",
+            "email": "slaure354@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Infotech\\Data2Monthly\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Infotech\\Data2Monthly\\Data2MonthlyServiceProvider"
+            ]
+        }
+    }
+}
