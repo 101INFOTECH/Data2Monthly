@@ -166,7 +166,6 @@ class Data2Monthly
         }
     }
 
-    // Test 
     public function currentWithYear($datas, $sortBy, $year)
     {
         $dataArr = [];
