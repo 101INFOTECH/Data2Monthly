@@ -84,5 +84,8 @@ Monthly::monthlyWithYear($data,'created_at','price','2021'));
 ▶ Using in chart.js
 
 ```
-<?=json_encode($data);?>
+$dataArr = Monthly::current($data,'created_at'));
+<script>
+let barGraph = <?=json_encode($dataArr);?>
+</script>
 ```
