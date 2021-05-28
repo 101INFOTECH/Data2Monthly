@@ -52,6 +52,22 @@ array:12 [▼
   11 => 0
 ]
 ```
+To get a data counted monthly data upto current month according to a given year.
+```
+Monthly::currentWithYear($data,'created_at','price','2021'));
+```
+Result
+It counts the data found on the respective month upto current month and with respective year and returns an array.
+```
+array:6 [▼
+  0 => 0
+  1 => 0
+  2 => 0
+  3 => 0
+  4 => 2
+  5 => 0
+]
+```
 
 Some List of Available Codes
 ```
@@ -61,6 +77,8 @@ Monthly::yearly($data,'created_at'));
 Monthly::expenseCurrent($data,'created_at','price'));
 Monthly::expenseMonthly($data,'created_at','price));
 Monthly::expenseYearly($data,'created_at','price'));
+Monthly::currentWithYear($data,'created_at','price','2021'));
+Monthly::monthlyWithYear($data,'created_at','price','2021'));
 ```
 
 Using in chart.js

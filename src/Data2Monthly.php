@@ -21,7 +21,7 @@ class Data2Monthly
                 $datacount[(int)$key] = count($value);
             }
 
-            for ($i = 1,$j =0 ; $i <= date('m'); $i++,$j++) {
+            for ($i = 1, $j = 0; $i <= date('m'); $i++, $j++) {
                 if (!empty($datacount[$i])) {
                     $dataArr[$j] = $datacount[$i];
                 } else {
@@ -110,7 +110,7 @@ class Data2Monthly
         }
     }
 
-    public function expenseMonthly(Collection $data,string $sortBy,string $sum)
+    public function expenseMonthly(Collection $data, string $sortBy, string $sum)
     {
         if ($this->checkCollection($data)) {
             $datas = $data->groupBy(function ($date) use ($sortBy) {
@@ -136,7 +136,7 @@ class Data2Monthly
     }
 
 
-    public function expenseYearly(Collection $data,string $sortBy,string $sum)
+    public function expenseYearly(Collection $data, string $sortBy, string $sum)
     {
         if ($this->checkCollection($data)) {
 
@@ -167,13 +167,34 @@ class Data2Monthly
     }
 
     // Test 
-    public function test($datas,$sortBy)
+    public function currentWithYear($datas, $sortBy, $year)
     {
         $dataArr = [];
-        foreach ($datas as $key => $data) {
-         if($data->$sortBy->format('Y') == date('Y')) 
-         $dataArr[(int)$key] = true; 
+        for ($i=0; $i <= date('m'); $i++) {
+            $dataArr[$i] = 0;
         }
+        foreach ($datas as $key => $data) {
+            if ($data->$sortBy->format('Y') == $year) {
+                $month = $data->$sortBy->format('m');
+                $month = ltrim($month, '0') - 1;
+                $dataArr[$month]++;
+            }
+            if($key == date('m')) break;
+        }
+        return $dataArr;
+    }
+    public function monthlyWithYear($datas, $sortBy, $year)
+    {
+        $dataArr = [];
+        $dataArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        foreach ($datas as $key => $data) {
+            if ($data->$sortBy->format('Y') == $year) {
+                $month = $data->$sortBy->format('m');
+                $month = ltrim($month,'0')-1;
+                $dataArr[$month]++;
+                }
+            }
+        return $dataArr;
     }
 
     private function checkCollection($data)
