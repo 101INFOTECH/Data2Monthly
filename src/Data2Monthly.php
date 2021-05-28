@@ -21,11 +21,11 @@ class Data2Monthly
                 $datacount[(int)$key] = count($value);
             }
 
-            for ($i = 0; $i <= date('m') - 1; $i++) {
+            for ($i = 1,$j =0 ; $i <= date('m'); $i++,$j++) {
                 if (!empty($datacount[$i])) {
-                    $dataArr[$i] = $datacount[$i];
+                    $dataArr[$j] = $datacount[$i];
                 } else {
-                    $dataArr[$i] = 0;
+                    $dataArr[$j] = 0;
                 }
             }
             return $dataArr;
@@ -74,11 +74,11 @@ class Data2Monthly
                 $datacount[(int)$key] = count($value);
             }
 
-            for ($i = 0; $i <= 12 - 1; $i++) {
+            for ($i = 1, $j = 0; $i <= 12; $i++, $j++) {
                 if (!empty($datacount[$i])) {
-                    $dataArr[$i] = $datacount[$i];
+                    $dataArr[$j] = $datacount[$i];
                 } else {
-                    $dataArr[$i] = 0;
+                    $dataArr[$j] = 0;
                 }
             }
             return $dataArr;
@@ -99,11 +99,11 @@ class Data2Monthly
                 $datacount[(int)$key] = $value->sum($sum);
             }
 
-            for ($i = 0; $i <= date('m') - 1; $i++) {
+            for ($i = 1, $j = 0; $i <= date('m'); $i++, $j++) {
                 if (!empty($datacount[$i])) {
-                    $dataArr[$i] = $datacount[$i];
+                    $dataArr[$j] = $datacount[$i];
                 } else {
-                    $dataArr[$i] = 0;
+                    $dataArr[$j] = 0;
                 }
             }
             return $dataArr;
@@ -124,11 +124,11 @@ class Data2Monthly
                 $datacount[(int)$key] = $value->sum($sum);
             }
 
-            for ($i = 0; $i <= 12 - 1; $i++) {
+            for ($i = 1, $j = 0; $i <= 12; $i++, $j++) {
                 if (!empty($datacount[$i])) {
-                    $dataArr[$i] = $datacount[$i];
+                    $dataArr[$j] = $datacount[$i];
                 } else {
-                    $dataArr[$i] = 0;
+                    $dataArr[$j] = 0;
                 }
             }
             return $dataArr;
@@ -155,7 +155,7 @@ class Data2Monthly
                 $datacount[(int)$key] = $value->sum($sum);
             }
 
-            for ($i = $first,$j= 0; $i <= 12 - 1; $i++,$j++) {
+            for ($i = $first, $j = 0; $i <= date('Y'); $i++, $j++) {
                 if (!empty($datacount[$i])) {
                     $dataArr[$j] = $datacount[$i];
                 } else {
@@ -163,6 +163,16 @@ class Data2Monthly
                 }
             }
             return $dataArr;
+        }
+    }
+
+    // Test 
+    public function test($datas,$sortBy)
+    {
+        $dataArr = [];
+        foreach ($datas as $key => $data) {
+         if($data->$sortBy->format('Y') == date('Y')) 
+         $dataArr[(int)$key] = true; 
         }
     }
 
