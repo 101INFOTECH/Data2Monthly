@@ -8,11 +8,11 @@ Require this package in your composer.json and update composer.
 composer require 101infotech/data2monthly
 ```
 
-#### Code Examples
+### Code Examples
 ```
 use Infotech\Data2Monthly\Monthly;
 ```
-##### ▶ To get a ordered monthly data upto current month.
+#### ▶ To get a ordered monthly data upto current month.
 ```
 $data = Visitors::all();
 Monthly::current($data,'created_at'));
@@ -31,7 +31,7 @@ array:5 [▼
   4 => 1
 ]
 ```
-##### ▶ To get a sum of a field grouped monthly.
+#### ▶ To get a sum of a field grouped monthly.
 ```
 $data = Expenses::all();
 Monthly::expenseMonthly($data,'created_at','price');
@@ -54,7 +54,7 @@ array:12 [▼
   11 => 0
 ]
 ```
-##### ▶ To get a data counted monthly data upto current month according to a given year.
+#### ▶ To get a data counted monthly data upto current month according to a given year.
 ```
 $data = Expenses::all();
 Monthly::currentWithYear($data,'created_at','price','2021'));
@@ -72,7 +72,7 @@ array:6 [▼
 ]
 ```
 
-##### ▶ Some List of Available Codes
+#### ▶ Some List of Available Codes
 ```
 Monthly::current($data,'created_at'));
 Monthly::monthly($data,'created_at'));
@@ -84,7 +84,7 @@ Monthly::currentWithYear($data,'created_at','price','2021'));
 Monthly::monthlyWithYear($data,'created_at','price','2021'));
 ```
 
-##### ▶ Using in chart.js
+#### ▶ Using in chart.js
 
 ```
 $dataArr = Monthly::current($data,'created_at'));
