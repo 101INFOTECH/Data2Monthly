@@ -14,6 +14,7 @@ use Infotech\Data2Monthly\Monthly;
 ```
 ▶ To get a ordered monthly data upto current month.
 ```
+$data = Visitors::all();
 Monthly::current($data,'created_at'));
 
 // $data must be a Collection
@@ -32,6 +33,7 @@ array:5 [▼
 ```
 ▶ To get a sum of a field grouped monthly.
 ```
+$data = Expenses::all();
 Monthly::expenseMonthly($data,'created_at','price');
 ```
 Result:
@@ -54,6 +56,7 @@ array:12 [▼
 ```
 ▶ To get a data counted monthly data upto current month according to a given year.
 ```
+$data = Expenses::all();
 Monthly::currentWithYear($data,'created_at','price','2021'));
 ```
 Result:
