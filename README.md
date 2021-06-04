@@ -1,4 +1,4 @@
-##Laravel: Data to Monthly Converter
+#Laravel: Data to Monthly Converter
 Using this package you will be able to converts your collection using a timestamp field to order data monthly or yearly and calculate monthly/yearly expenses.
 You can use this package to build some expenses app and apply in chart.js efficiently.
 
