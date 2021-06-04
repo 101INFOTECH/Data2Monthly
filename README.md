@@ -8,7 +8,7 @@ Require this package in your composer.json and update composer.
 composer require 101infotech/data2monthly
 ```
 
-### Code Examples
+#### Code Examples
 ```
 use Infotech\Data2Monthly\Monthly;
 ```
