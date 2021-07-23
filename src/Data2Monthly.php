@@ -198,10 +198,16 @@ class Data2Monthly
 
     public function daily(Collection $data, string $sortBy, int $month = null)
     {
-        if(!$month) $month = date('m');
+        $array_size = 30;
+        if (!$month) {
+            $month = date('m');
+            $array_size = date('d');
+        }elseif($month == date('m')){
+            $array_size = date('d');
+        }
         if ($this->checkCollection($data)) {
-            $datas = $data->groupBy(function ($date) use ($sortBy,$month) {
-                if(Carbon::parse($date->$sortBy)->format('m') == $month)
+            $datas = $data->groupBy(function ($date) use ($sortBy, $month) {
+                if (Carbon::parse($date->$sortBy)->format('m') == $month)
                     return Carbon::parse($date->$sortBy)->format('d');
             });
 
@@ -212,7 +218,7 @@ class Data2Monthly
                 $datacount[(int)$key] = count($value);
             }
 
-            for ($i = 1, $j = 0; $i <= date('d'); $i++, $j++) {
+            for ($i = 1, $j = 0; $i <= $array_size; $i++, $j++) {
                 if (!empty($datacount[$i])) {
                     $dataArr[$j] = $datacount[$i];
                 } else {
